@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+section{
+    display: flex;
+    width:80vh;
+    height: 80vh;
+}
+section>div.sign-up{
+    background-color: #F4FFFD;
+    width:80%;
+    margin-left: 100px;
+}
+section>div.sign-decoration{
+    background-color: #465362;
+    width: 80%;
+    margin-left: 100px;
+}

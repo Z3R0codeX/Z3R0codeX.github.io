@@ -6,10 +6,3 @@ son brindados por una variedad de expertos en el ambito veterinario con el fin d
 el cuidado de las mascotas.
 --lineamientos de diseño--
 colores:
-#465362
-#ED254E
-#F4FFFD
-#F9DC5C
-
-tipografia:
-lexend
