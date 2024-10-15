@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,32 +7,36 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <section class="container">
-        <div class="sign-up">
-            <h2>Sign Up</h2>
-            <div>
-                <button></button>
-                <button></button>
-                <button></button>
+    <div class="container">
+        <div class="signup-form">
+            <h1>Sign Up</h1>
+            <div class="social-icons">
+                <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="google-icon.png" alt="Google"></a>
+                <a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
             </div>
-            <div>
-                <input type="text" placeholder="Usernaem">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-            </div>
-            <button>Sign Up</button>
-            <div>
-                <p>Already have an account?</p>
-                <button>Sign In</button>
-            </div>
+            <form>
+                <div class="input-group">
+                    <label for="username"><img src="user-icon.png" alt="User Icon"></label>
+                    <input type="text" id="username" placeholder="Username">
+                </div>
+                <div class="input-group">
+                    <label for="email"><img src="email-icon.png" alt="Email Icon"></label>
+                    <input type="email" id="email" placeholder="Email">
+                </div>
+                <div class="input-group">
+                    <label for="password"><img src="lock-icon.png" alt="Password Icon"></label>
+                    <input type="password" id="password" placeholder="Password">
+                </div>
+                <button type="submit" class="signup-btn">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="#">Sign In</a></p>
         </div>
-        <div class="sign-decoration">
-            <div>
-                <img src="./img/iconmonstr-cat-7-240.png" alt="">
-                <h1>Petpedia</h1>
-            </div>
-            <img src="./img/Dog paw-pana.png" alt="Dog image">
+        <div class="side-image">
+            <h2 class="brand-name">Petpedia</h2>
+            <img src="./img/Dog paw-pana.png" alt="Dog Illustration">
+            
         </div>
-    </section>
+    </div>
 </body>
 </html>
