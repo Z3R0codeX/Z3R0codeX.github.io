@@ -22,8 +22,17 @@ body {
     justify-content: center;
     align-items: center;
     color: #f8e71c;
-    order: 2; 
-    padding: 20px;
+}
+
+.side-image .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.side-image .logo img {
+    width: 40px;
+    margin-right: 10px;
 }
 
 .side-image .brand-name {
@@ -32,13 +41,12 @@ body {
     margin-bottom: 20px;
 }
 
-.side-image img {
-    max-width: 80%;
-    height: auto;
+.side-image .cat-family {
+    width: 300px;
+    margin-top: 20px;
 }
 
-
-.signup-form {
+.sign-in-section {
     background-color: #f8f8f8;
     width: 54%;
     padding: 80px;
@@ -46,23 +54,22 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    order: 1; 
 }
 
-.signup-form h1 {
+.sign-in-section h2 {
     font-size: 36px;
     color: #ff4c61;
     margin-bottom: 30px;
 }
 
-.social-icons {
+.social-media {
     display: flex;
     justify-content: center;
     gap: 15px;
     margin-bottom: 30px;
 }
 
-.social-icons a img {
+.social-media a img {
     width: 40px;
     height: 40px;
 }
@@ -81,13 +88,7 @@ form {
     border: 2px solid #ddd;
     border-radius: 5px;
     padding: 10px;
-    background-color: transparent;
-}
-
-.input-group span.material-icons {
-    margin-right: 10px;
-    font-size: 24px;
-    color: #666;
+    background-color: transparent; 
 }
 
 .input-group input {
@@ -96,15 +97,33 @@ form {
     font-size: 16px;
     border: none;
     outline: none;
-    background-color: transparent;
+    background-color: transparent; 
     color: #333; 
+}
+
+.input-group span.material-icons {
+    margin-right: 10px;
+    font-size: 24px;
+    color: #666;
 }
 
 .input-group input::placeholder {
     color: #aaa; 
 }
 
-.signup-btn {
+.forgot-password {
+    text-align: right;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #ff4c61;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.btn {
     background-color: #ff4c61;
     color: white;
     padding: 15px;
@@ -114,7 +133,7 @@ form {
     cursor: pointer;
 }
 
-.signup-btn:hover {
+.btn:hover {
     background-color: #e04356;
 }
 
