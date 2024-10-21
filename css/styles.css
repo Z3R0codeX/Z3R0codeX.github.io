@@ -24,19 +24,32 @@ body {
     color: #f8e71c;
     order: 2; 
     padding: 20px;
+    position: relative;
+}
+
+.side-image .logo {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 20px; 
+    right: 20px; 
+}
+
+.side-image .logo img {
+    width: 40px;
+    margin-right: 10px;
 }
 
 .side-image .brand-name {
     font-size: 36px;
     color: #f8e71c;
-    margin-bottom: 20px;
 }
 
-.side-image img {
+.side-image .dog {
     max-width: 80%;
     height: auto;
+    margin-top: 50px; 
 }
-
 
 .signup-form {
     background-color: #f8f8f8;
