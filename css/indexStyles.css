@@ -61,7 +61,6 @@ nav ul li a:hover {
 main {
     background-color: #4a4f58;
     color: white;
-    padding: 50px 40px;
 }
 
 .hero {
@@ -71,6 +70,7 @@ main {
 
 .hero-text {
     max-width: 50%;
+    margin-left: 40px;
 }
 
 .hero-text h2 {
@@ -114,8 +114,9 @@ main {
 }
 
 .hero-image img {
-    width: 300px;
+    width: 400px;
     height: auto;
+    margin-left: 100px;
 }
 
 /* Stats Section */
@@ -126,8 +127,8 @@ main {
     color: white;
     padding: 30px 0;
     margin-top: 50px;
-    border-radius: 20px;
 }
+
 
 .stat-item {
     text-align: center;
@@ -144,18 +145,27 @@ main {
 
 .about-us {
     display: flex;
-    padding: 40px;
     background-color: #f8f8f8;
+    height: 100vh;
 }
 
 .about-image {
     flex: 1;
-    padding: 20px;
+    padding: 40px;
+    background-color: #4a4f58;
+    
+}
+
+.about-image img {
+    height: 450px;
+    width: auto;
+   border: 5px solid #ff4c61;
+   border-radius: 50px;
 }
 
 .about-content {
     flex: 1;
-    padding: 20px;
+    padding: 40px;
 }
 
 .about-content h2 {
@@ -168,7 +178,7 @@ main {
 }
 
 .about-content ul {
-    list-style-type: none;
+    list-style-type:disc;
     margin-bottom: 20px;
 }
 
@@ -188,6 +198,7 @@ main {
     padding: 40px;
     background-color: #f8e71c;
     text-align: center;
+    height: 100vh;
 }
 
 .services h2 {
@@ -208,11 +219,17 @@ main {
     text-align: center;
 }
 
+.service-item img{
+    height: 200px;
+    width: auto;
+}
+
 .testimonials {
     padding: 40px;
     background-color: #ff4c61;
     color: white;
     text-align: center;
+    height: 70vh;
 }
 
 .testimonial-slider {
