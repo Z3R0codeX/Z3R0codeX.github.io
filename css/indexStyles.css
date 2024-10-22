@@ -9,7 +9,6 @@ body {
     background-color: #f5f5f5;
 }
 
-/* Header Section */
 header {
     display: flex;
     justify-content: space-between;
@@ -57,7 +56,6 @@ nav ul li a:hover {
     width: 30px;
 }
 
-/* Main Section */
 main {
     background-color: #4a4f58;
     color: white;
@@ -119,7 +117,6 @@ main {
     margin-left: 100px;
 }
 
-/* Stats Section */
 .stats {
     display: flex;
     justify-content: space-around;
@@ -236,7 +233,7 @@ main {
     justify-content: flex-start;
     align-items: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    position: relative; /* Mantener la posición relativa para el botón */
+    position: relative; 
 }
 
 .service-item img {
@@ -255,34 +252,34 @@ main {
 
 .service-description {
     color: white;
-    text-align: left; /* Alinear texto a la izquierda */
-    margin: 0; /* Eliminar márgenes para un mejor control del espaciado */
-    flex: 1; /* Permitir que el texto ocupe el espacio disponible */
-    padding-bottom: 60px; /* Agregar espacio en la parte inferior para evitar superposición con el botón */
+    text-align: left; 
+    margin: 0;
+    flex: 1; 
+    padding-bottom: 60px; 
 }
 
 .service-item .hire-btn {
     background-color: #ff4c61;
     color: white;
-    padding: 10px; /* Mantener padding igual en todas las direcciones para un botón redondo */
-    border-radius: 50%; /* Hacer el botón redondo */
+    padding: 10px; 
+    border-radius: 50%; 
     text-decoration: none;
     font-size: 24px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute; /* Mantener posición absoluta */
-    bottom: 20px; /* Espacio desde la parte inferior */
-    right: 20px; /* Cambiar a derecho para la esquina inferior derecha */
-    width: 50px; /* Ancho del botón */
-    height: 50px; /* Alto del botón */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Agregar sombra */
-    transition: background-color 0.3s; /* Transición suave */
+    position: absolute; 
+    bottom: 20px; 
+    right: 20px; 
+    width: 50px; 
+    height: 50px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
 }
 
 .service-item .hire-btn:hover {
-    background-color: #e04356; /* Cambiar color al pasar el mouse */
+    background-color: #e04356; 
 }
 
 .service-item .hire-btn .material-icons {
@@ -350,18 +347,22 @@ main {
 }
 
 .left-arrow, .right-arrow {
+    width:  50px;
+    height: 50px;
     position: absolute; 
     top: 50%; 
     transform: translateY(-50%); 
-    font-size: 50px;
     color: black; 
     cursor: pointer; 
-    padding: 10px; 
+    padding-left: 10px;
+    padding-top: 4px;
     background: rgba(255, 255, 255, 0.7);
     border-radius: 50%; 
     transition: background-color 0.3s; 
 }
-
+.left-arrow .material-icons, .right-arrow .material-icons {
+    font-size: 40px;
+}
 .left-arrow {
     left: 10px; 
 }
