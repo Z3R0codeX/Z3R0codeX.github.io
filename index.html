@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Petpedia</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./css/indexStyles.css">
 </head>
 <body>
@@ -71,40 +72,58 @@
             <a href="#" class="learn-more-btn">Learn More</a>
         </div>
     </section>
+
     <section class="services">
         <h2>Our Services</h2>
         <div class="service-grid">
             <div class="service-item">
-                <img src="./img/Adopt a pet-pana.png"" alt="Service 1">
+                <img src="./img/pet care-pana (1).png" alt="Service 1">
                 <h3>Pet Grooming</h3>
-                <p>Keep your pets looking their best with our grooming services.</p>
+                <p class="service-description">Keep your pets looking their best with our grooming services.</p>
+                <a href="#" class="hire-btn"><i class="material-icons">add</i></a>
             </div>
             <div class="service-item">
-                <img src="service2.png" alt="Service 2">
+                <img src="./img/Good doggy-pana.png" alt="Service 2">
                 <h3>Pet Training</h3>
-                <p>We offer top-notch training to help your pets behave better.</p>
+                <p class="service-description">We offer top-notch training to help your pets behave better.</p>
+                <a href="#" class="hire-btn"><i class="material-icons">add</i></a>
             </div>
             <div class="service-item">
-                <img src="service3.png" alt="Service 3">
+                <img src="./img/Veterinary-pana.png" alt="Service 3">
                 <h3>Vet Services</h3>
-                <p>Our experienced veterinarians ensure your pets stay healthy.</p>
+                <p class="service-description">Our experienced veterinarians ensure your pets stay healthy.</p>
+                <a href="#" class="hire-btn"><i class="material-icons">add</i></a>
             </div>
             <div class="service-item">
-                <img src="service4.png" alt="Service 4">
+                <img src="./img/Playful cat-pana.png" alt="Service 4">
                 <h3>Pet Adoption</h3>
-                <p>Find your new best friend through our adoption program.</p>
+                <p class="service-description">Find your new best friend through our adoption program.</p>
+                <a href="#" class="hire-btn"><i class="material-icons">add</i></a>
             </div>
         </div>
-    </section>
+    </section>    
+    
     <section class="testimonials">
-        <h2>What our clients say about us</h2>
+        <h2 class="testimonials-title">What our clients say about us</h2>
         <div class="testimonial-slider">
+            <div class="left-arrow" onclick="prevTestimonial()">
+                <i class="material-icons">arrow_back_ios</i>
+            </div>
             <div class="testimonial">
-                <p>"The team at Petpedia has always provided the best care for our dog. They are professional, caring, and always available when we need them."</p>
-                <p class="author">- Jane Doe</p>
+                <img src="./img/messy bun-pana.png" alt="Client Image" class="client-image"> 
+                <div class="testimonial-text"> 
+                    <p class="testimonial-title"><strong>Outstanding Service!</strong></p> 
+                    <p>"The team at Petpedia has always provided the best care for our dog. They are professional, caring, and always available when we need them."</p>
+                    <p class="author">- Jane Doe</p>
+                </div>
+            </div>
+            <div class="right-arrow">
+                <i class="material-icons">arrow_forward_ios</i>
             </div>
         </div>
     </section>
+    
+     
    <footer>
     <div class="footer-container">
         <!-- Logo y Newsletter -->
@@ -140,6 +159,5 @@
         </div>
     </div>
 </footer>
-
 </body>
 </html>
