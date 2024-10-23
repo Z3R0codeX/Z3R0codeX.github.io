@@ -10,17 +10,17 @@ body {
 }
 
 header {
-    position: fixed; /* Fijar el header en la parte superior */
+    position: fixed; 
     top: 0;
-    width: 100%; /* Asegurar que ocupe todo el ancho de la ventana */
+    width: 100%;
     display: flex;
-    justify-content: space-between; /* Espaciar los elementos a los lados */
+    justify-content: space-between; 
     align-items: center;
-    padding: 15px 30px; /* Añadir algo de padding */
-    background-color: rgba(74, 79, 88, 0.5); /* Fondo transparente */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para el header */
-    z-index: 1000; /* Asegurar que el header quede sobre otros elementos */
-    transition: background-color 0.3s ease; /* Transición suave en el fondo */
+    padding: 15px 30px; 
+    background-color: rgba(74, 79, 88, 0.5); 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
 }
 
 header:hover {
@@ -65,28 +65,31 @@ nav ul li a:hover {
     gap: 15px; 
 }
 
-button.sign-up, button.sign-in {
-    padding: 10px 20px; /* Padding interno para los botones */
-    border-radius: 30px; /* Bordes redondeados */
-    border: 2px solid #ff4c61; /* Borde con color */
+a.sign-up, a.sign-in {
+    
+    padding: 10px 20px; 
+    border-radius: 30px; 
+    border: 2px solid #ff4c61; 
     background-color: transparent;
-    color: #ff4c61; /* Color del texto */
+    color: #ff4c61; 
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+    transition: background-color 0.3s ease, color 0.3s ease; 
 }
 
-button.sign-up:hover, button.sign-in:hover {
-    background-color: #ff4c61; /* Fondo al pasar el mouse */
-    color: white; /* Color del texto cuando se activa el hover */
+a.sign-up:hover, a.sign-in:hover {
+    background-color: #ff4c61; 
+    color: white;
 }
 
-button.sign-up {
-    font-weight: bold; /* Negritas para "Sign Up" */
+a.sign-up {
+    font-weight: bold; 
+    text-decoration: none;
 }
 
-button.sign-in {
-    font-weight: normal; /* Normal para "Sign In" */
+a.sign-in {
+    text-decoration: none;
+    font-weight: normal; 
 }
 
 
@@ -159,9 +162,9 @@ main {
     justify-content: space-around;
     background-color: #ff4c61;
     color: white;
-    align-items: center; /* Alineación vertical de los elementos */
-    position: relative; /* Posicionar elementos relativos al contenedor */
-    overflow: visible; /* Permitir que los elementos sobresalgan del contenedor */
+    align-items: center; 
+    position: relative; 
+    overflow: visible; 
 }
 
 .stat-img-item {
@@ -546,80 +549,10 @@ footer {
 }
 
 
-@media( max-width:768px){
-    .stat-img-item {
-        display: none;
-    }
 
-    .hero-image img {
-        width: 300px;
-        height: auto;
-        margin-left: 50px;
-    }
 
-    .about-image img {
-        height: 300px;
-        width: auto;
-        border: 5px solid #ff4c61;
-        border-radius: 50px;
-    }
 
-    .services {
-        height: auto; 
-    }
-    
-    .service-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px; 
-        padding: 0 40px;
-        width: 100%; 
-    }
 
-    .client-image {
-        height: 100px; 
-        width: auto; 
-        border-radius: 5px; 
-        margin-right: 20px; 
-        border: 3px solid #ff4c61; 
-        margin-left: 50px;
-    }
-
-    .left-arrow, .right-arrow{
-        display: none;
-    }
-
-    .testimonial-text {
-        flex: 1; 
-        text-align: left; 
-        margin-right: 50px;
-        font-size: 12px;
-    }
-
-    .footer-section p, .footer-section a{
-        font-size: 12px;
-    }
-
-    .contact p{
-        font-size: 12px;
-    }
-
-    .newsletter-form input {
-        border: none;
-        padding: 5px;
-        border-radius: 5px 0 0 5px;
-        width: 70%;
-        font-size: 11px;
-    }
-    
-    .newsletter-form button {
-        background-color: #ff4c61;
-        border: none;
-        padding: 5px;
-        font-size: 12px;
-        color: white;
-        cursor: pointer;
-        border-radius: 0 5px 5px 0;
-    }
+@media(max-width: 425px){
 
 }
