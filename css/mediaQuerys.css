@@ -1,4 +1,29 @@
 @media( max-width:768px){
+
+    main{
+        height: auto;
+        width: auto;
+    }
+
+    .stats {
+        height: auto; 
+    }
+
+    .about-us {
+        height: auto;
+        width: auto;
+    }
+
+    .services {
+       height: auto;
+       width: auto;
+    }
+
+    .testimonials {
+       height: 60%;
+       width: auto; 
+    }
+
     .stat-img-item {
         display: none;
     }
@@ -72,6 +97,177 @@
         color: white;
         cursor: pointer;
         border-radius: 0 5px 5px 0;
+    }
+
+}
+
+@media(max-width: 425px){
+
+    .side-image {
+       display: none;
+    }
+
+    .signup-form{
+        width: 100%;
+    }
+
+    .sign-in-section{
+        width: 100%;
+    }
+
+    .logo img {
+        height: 20px;
+        margin-right: 10px;
+    }
+    
+    .logo h1 {
+        font-size: 10px;
+        color: #f8e71c; 
+    }
+    
+    nav ul {
+       display: none;
+    }
+
+    a.sign-up, a.sign-in {
+    
+        padding: 5px 10px; 
+        border-radius: 30px; 
+        border: 2px solid #ff4c61; 
+        background-color: transparent;
+        color: #ff4c61; 
+        font-size: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease; 
+    }
+
+    main{
+        height: auto;
+        width: auto;
+    }
+
+    .stats {
+        height:auto;
+        padding: 5px;
+    }
+
+    .about-us {
+        height: auto;
+        width: auto;
+    }
+
+    .services {
+       height: auto;
+       width: auto;
+    }
+
+    .testimonials {
+       height: 60%;
+       width: auto; 
+    }
+
+    .hero{
+        padding-top: 40px;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .hero-text h2{
+        font-size: 25px;
+    }
+    
+    .cta-buttons .btn {
+        font-size: 12px;
+    }
+
+    .hero-image img {
+        width: 200px;
+        height: auto;
+        margin-right: 65px;
+    }
+
+    .stat-item h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .stat-item p {
+        font-size: 12px;
+    }
+
+    .about-image {
+        display: none;
+    }
+
+    .about-content {
+        flex: 1;
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .about-content h2 {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+    
+    .about-content ul {
+        list-style:none;
+    }
+
+    .service-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px; 
+        padding: 0 40px;
+        width: 100%; 
+    }
+
+    .services h2 {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+    .service-item img {
+        height: 150px;
+        width: auto;
+        margin-bottom: 15px;
+        border: 5px solid #ff4c61;
+        border-radius: 10px;
+    }
+
+    .client-image {
+        display: none;
+    }
+
+    .testimonial{
+        padding: 10px;
+        height: 60%;
+    }
+
+    .testimonials-title{
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+    .testimonial-text {
+        text-align: center; 
+        margin-right: 0;
+    }
+
+    .footer-container {
+        display: grid;
+        justify-content:flex-start;
+    }
+
+    .menu{
+        display: none;
+    }
+
+    .contact{
+        margin-top: 20px;
     }
 
 }

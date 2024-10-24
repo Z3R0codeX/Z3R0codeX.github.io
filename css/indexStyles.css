@@ -101,13 +101,14 @@ main {
 
 .hero {
     height: 80%;
-    display: flex;
+    display:flex;
     align-items: center;
+    justify-content: center;
+    
 }
 
 .hero-text {
     max-width: 50%;
-    margin-left: 40px;
 }
 
 .hero-text h2 {
@@ -153,7 +154,6 @@ main {
 .hero-image img {
     width: 480px;
     height: auto;
-    margin-left: 100px;
 }
 
 .stats {
@@ -546,13 +546,4 @@ footer {
 .contact i {
     font-size: 20px;
     margin-right: 10px;
-}
-
-
-
-
-
-
-@media(max-width: 425px){
-
 }
