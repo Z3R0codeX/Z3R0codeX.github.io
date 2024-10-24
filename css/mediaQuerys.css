@@ -115,6 +115,31 @@
         width: 100%;
     }
 
+    sign-in-section h2 {
+        font-size: 25px;
+    }
+
+    .input-group input {
+        font-size: 10px;
+    }
+
+    .input-group input {
+        font-size: 10px;
+    }
+
+    .forgot-password {
+        font-size: 1spx;
+    }
+
+    .btn {
+        font-size: 12px;
+    }
+
+    p {
+        margin-top: 20px;
+        font-size: 10px;
+    }
+
     .logo img {
         height: 20px;
         margin-right: 10px;
