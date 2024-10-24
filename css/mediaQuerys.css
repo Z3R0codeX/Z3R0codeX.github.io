@@ -109,10 +109,12 @@
 
     .signup-form{
         width: 100%;
+        padding: 25px;
     }
 
     .sign-in-section{
         width: 100%;
+        padding: 25px;
     }
 
     sign-in-section h2 {
@@ -131,9 +133,6 @@
         font-size: 1spx;
     }
 
-    .btn {
-        font-size: 12px;
-    }
 
     p {
         margin-top: 20px;
