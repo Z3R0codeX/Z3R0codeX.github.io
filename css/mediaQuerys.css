@@ -236,9 +236,18 @@
         font-size: 25px;
         margin-bottom: 20px;
     }
+
+    .about-content p {
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
     
     .about-content ul {
         list-style:none;
+    }
+    .about-content ul li {
+        margin-bottom: 10px;
+        font-size: 16px;
     }
 
     .service-grid {
