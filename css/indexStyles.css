@@ -175,7 +175,7 @@ main {
 }
 
 .stat-img-item img {
-    width: auto;
+    width: 400px;
     height: 400px;
 }
 
@@ -302,7 +302,7 @@ main {
 
 .service-item img {
     height: 200px;
-    width: auto;
+    width: 200px;
     margin-bottom: 15px;
     border: 5px solid #ff4c61;
     border-radius: 10px;
