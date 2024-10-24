@@ -117,7 +117,21 @@
         padding: 25px;
     }
 
-    sign-in-section h2 {
+    .sign-in-section h2 {
+        font-size: 25px;
+    }
+
+    .social-media a img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .social-icons a img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .signup-form h2 {
         font-size: 25px;
     }
 
