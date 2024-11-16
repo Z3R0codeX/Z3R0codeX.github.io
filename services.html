@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Petpedia Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
+          <div class="position-sticky">
+            <h4 class="text-center text-light py-3">Petpedia Dashboard</h4>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link text-light" href="./dashboard.html">
+                  <i class="bi bi-house"></i> Inicio
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="./users.html">
+                  <i class="bi bi-people"></i> Gestión de Usuarios
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="./services.html">
+                  <i class="bi bi-box"></i> Servicios
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="./adoption.html">
+                  <i class="bi bi-paw"></i> Adopciones
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="#">
+                  <i class="bi bi-star"></i> Testimonios
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="#">
+                  <i class="bi bi-gear"></i> Configuración
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="#">
+                  <i class="bi bi-bar-chart"></i> Reportes y Análisis
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+          >
+            <h1 class="h2">Gestión de Servicios</h1>
+          </div>
+
+          <!-- Acordeón de Servicios (Encabezado Oscuro) -->
+          <div class="accordion accordion-dark" id="servicesAccordion">
+            <!-- Consulta Médica -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingConsultaMedica">
+                <button
+                  class="accordion-button bg-dark text-white"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseConsultaMedica"
+                  aria-expanded="true"
+                  aria-controls="collapseConsultaMedica"
+                >
+                  Consulta Médica
+                </button>
+              </h2>
+              <div
+                id="collapseConsultaMedica"
+                class="accordion-collapse collapse show"
+                aria-labelledby="headingConsultaMedica"
+                data-bs-parent="#servicesAccordion"
+              >
+                <div class="accordion-body">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          Revisión general de la mascota por un veterinario
+                          especializado.
+                        </td>
+                        <td>$50.00</td>
+                        <td>
+                          <button
+                            class="btn btn-warning btn-sm"
+                            data-bs-toggle="modal"
+                            data-bs-target="#editConsultaMedicaModal"
+                            data-descripcion="Revisión general de la mascota por un veterinario especializado."
+                            data-precio="50.00"
+                          >
+                            <i class="bi bi-pencil"></i> Editar
+                          </button>
+                          <button class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash"></i> Eliminar
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Chequeo de salud y vacunación anual.</td>
+                        <td>$55.00</td>
+                        <td>
+                          <button
+                            class="btn btn-warning btn-sm"
+                            data-bs-toggle="modal"
+                            data-bs-target="#editConsultaMedicaModal"
+                            data-descripcion="Chequeo de salud y vacunación anual."
+                            data-precio="55.00"
+                          >
+                            <i class="bi bi-pencil"></i> Editar
+                          </button>
+                          <button class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash"></i> Eliminar
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Diagnóstico y tratamiento para enfermedades comunes.
+                        </td>
+                        <td>$60.00</td>
+                        <td>
+                          <button
+                            class="btn btn-warning btn-sm"
+                            data-bs-toggle="modal"
+                            data-bs-target="#editConsultaMedicaModal"
+                            data-descripcion="Diagnóstico y tratamiento para enfermedades comunes."
+                            data-precio="60.00"
+                          >
+                            <i class="bi bi-pencil"></i> Editar
+                          </button>
+                          <button class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash"></i> Eliminar
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <button
+                    class="btn btn-success"
+                    data-bs-toggle="modal"
+                    data-bs-target="#addConsultaMedicaModal"
+                  >
+                    <i class="bi bi-plus-circle"></i> Agregar Registro
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Adiestramiento -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingAdiestramiento">
+                <button
+                  class="accordion-button bg-dark text-white"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseAdiestramiento"
+                  aria-expanded="false"
+                  aria-controls="collapseAdiestramiento"
+                >
+                  Adiestramiento
+                </button>
+              </h2>
+              <div
+                id="collapseAdiestramiento"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingAdiestramiento"
+                data-bs-parent="#servicesAccordion"
+              >
+                <div class="accordion-body">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          Sesiones de entrenamiento para mejorar el
+                          comportamiento de tu mascota.
+                        </td>
+                        <td>$100.00</td>
+                        <td>
+                          <button
+                            class="btn btn-warning btn-sm"
+                            data-bs-toggle="modal"
+                            data-bs-target="#editAdiestramientoModal"
+                            data-descripcion="Sesiones de entrenamiento para mejorar el comportamiento de tu mascota."
+                            data-precio="100.00"
+                          >
+                            <i class="bi bi-pencil"></i> Editar
+                          </button>
+                          <button class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash"></i> Eliminar
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Entrenamiento en obediencia básica (sentado, quieto,
+                          venir).
+                        </td>
+                        <td>$120.00</td>
+                        <td>
+                          <button
+                            class="btn btn-warning btn-sm"
+                            data-bs-toggle="modal"
+                            data-bs-target="#editAdiestramientoModal"
+                            data-descripcion="Entrenamiento en obediencia básica (sentado, quieto, venir)."
+                            data-precio="120.00"
+                          >
+                            <i class="bi bi-pencil"></i> Editar
+                          </button>
+                          <button class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash"></i> Eliminar
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Sesiones de socialización para mejorar la interacción
+                          con otros animales.
+                        </td>
+                        <td>$130.00</td>
+                        <td>
+                          <button
+                            class="btn btn-warning btn-sm"
+                            data-bs-toggle="modal"
+                            data-bs-target="#editAdiestramientoModal"
+                            data-descripcion="Sesiones de socialización para mejorar la interacción con otros animales."
+                            data-precio="130.00"
+                          >
+                            <i class="bi bi-pencil"></i> Editar
+                          </button>
+                          <button class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash"></i> Eliminar
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <button
+                    class="btn btn-success"
+                    data-bs-toggle="modal"
+                    data-bs-target="#addAdiestramientoModal"
+                  >
+                    <i class="bi bi-plus-circle"></i> Agregar Registro
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Consulta Estética -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingConsultaEstetica">
+                <button
+                  class="accordion-button bg-dark text-white"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseConsultaEstetica"
+                  aria-expanded="false"
+                  aria-controls="collapseConsultaEstetica"
+                >
+                  Consulta Estética
+                </button>
+              </h2>
+              <div
+                id="collapseConsultaEstetica"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingConsultaEstetica"
+                data-bs-parent="#servicesAccordion"
+              >
+                <div class="accordion-body">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          Servicios de cuidado estético especializado para tu
+                          mascota.
+                        </td>
+                        <td>$75.00</td>
+                        <td>
+                          <button
+                            class="btn btn-warning btn-sm"
+                            data-bs-toggle="modal"
+                            data-bs-target="#editConsultaEsteticaModal"
+                            data-descripcion="Servicios de cuidado estético especializado para tu mascota."
+                            data-precio="75.00"
+                          >
+                            <i class="bi bi-pencil"></i> Editar
+                          </button>
+                          <button class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash"></i> Eliminar
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Corte de pelo y baño completo para tu mascota.</td>
+                        <td>$80.00</td>
+                        <td>
+                          <button
+                            class="btn btn-warning btn-sm"
+                            data-bs-toggle="modal"
+                            data-bs-target="#editConsultaEsteticaModal"
+                            data-descripcion="Corte de pelo y baño completo para tu mascota."
+                            data-precio="80.00"
+                          >
+                            <i class="bi bi-pencil"></i> Editar
+                          </button>
+                          <button class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash"></i> Eliminar
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Tratamientos de higiene dental para mascotas.</td>
+                        <td>$85.00</td>
+                        <td>
+                          <button
+                            class="btn btn-warning btn-sm"
+                            data-bs-toggle="modal"
+                            data-bs-target="#editConsultaEsteticaModal"
+                            data-descripcion="Tratamientos de higiene dental para mascotas."
+                            data-precio="85.00"
+                          >
+                            <i class="bi bi-pencil"></i> Editar
+                          </button>
+                          <button class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash"></i> Eliminar
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <button
+                    class="btn btn-success"
+                    data-bs-toggle="modal"
+                    data-bs-target="#addConsultaEsteticaModal"
+                  >
+                    <i class="bi bi-plus-circle"></i> Agregar Registro
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal para Agregar Consulta Médica -->
+          <div
+            class="modal fade"
+            id="addConsultaMedicaModal"
+            tabindex="-1"
+            aria-labelledby="addConsultaMedicaModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="addConsultaMedicaModalLabel">
+                    Agregar Consulta Médica
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <!-- Formulario para agregar Consulta Médica -->
+                  <form>
+                    <div class="mb-3">
+                      <label for="consultaDescripcion" class="form-label"
+                        >Descripción</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="consultaDescripcion"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="consultaPrecio" class="form-label"
+                        >Precio</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="consultaPrecio"
+                        required
+                      />
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                      Agregar
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal para Agregar Adiestramiento -->
+          <div
+            class="modal fade"
+            id="addAdiestramientoModal"
+            tabindex="-1"
+            aria-labelledby="addAdiestramientoModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="addAdiestramientoModalLabel">
+                    Agregar Adiestramiento
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <!-- Formulario para agregar Adiestramiento -->
+                  <form>
+                    <div class="mb-3">
+                      <label for="adiestramientoDescripcion" class="form-label"
+                        >Descripción</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="adiestramientoDescripcion"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="adiestramientoPrecio" class="form-label"
+                        >Precio</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="adiestramientoPrecio"
+                        required
+                      />
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                      Agregar
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal para Agregar Consulta Estética -->
+          <div
+            class="modal fade"
+            id="addConsultaEsteticaModal"
+            tabindex="-1"
+            aria-labelledby="addConsultaEsteticaModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="addConsultaEsteticaModalLabel">
+                    Agregar Consulta Estética
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <!-- Formulario para agregar Consulta Estética -->
+                  <form>
+                    <div class="mb-3">
+                      <label
+                        for="consultaEsteticaDescripcion"
+                        class="form-label"
+                        >Descripción</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="consultaEsteticaDescripcion"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="consultaEsteticaPrecio" class="form-label"
+                        >Precio</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="consultaEsteticaPrecio"
+                        required
+                      />
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                      Agregar
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal para Editar Consulta Médica -->
+          <div
+            class="modal fade"
+            id="editConsultaMedicaModal"
+            tabindex="-1"
+            aria-labelledby="editConsultaMedicaModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="editConsultaMedicaModalLabel">
+                    Editar Consulta Médica
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label for="editConsultaDescripcion" class="form-label"
+                        >Descripción</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="editConsultaDescripcion"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="editConsultaPrecio" class="form-label"
+                        >Precio</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="editConsultaPrecio"
+                        required
+                      />
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                      Guardar Cambios
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal para Editar Adiestramiento -->
+          <div
+            class="modal fade"
+            id="editAdiestramientoModal"
+            tabindex="-1"
+            aria-labelledby="editAdiestramientoModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="editAdiestramientoModalLabel">
+                    Editar Adiestramiento
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label
+                        for="editAdiestramientoDescripcion"
+                        class="form-label"
+                        >Descripción</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="editAdiestramientoDescripcion"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="editAdiestramientoPrecio" class="form-label"
+                        >Precio</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="editAdiestramientoPrecio"
+                        required
+                      />
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                      Guardar Cambios
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal para Editar Consulta Estética -->
+          <div
+            class="modal fade"
+            id="editConsultaEsteticaModal"
+            tabindex="-1"
+            aria-labelledby="editConsultaEsteticaModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="editConsultaEsteticaModalLabel">
+                    Editar Consulta Estética
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label
+                        for="editConsultaEsteticaDescripcion"
+                        class="form-label"
+                        >Descripción</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="editConsultaEsteticaDescripcion"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="editConsultaEsteticaPrecio" class="form-label"
+                        >Precio</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="editConsultaEsteticaPrecio"
+                        required
+                      />
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                      Guardar Cambios
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+  </body>
+</html>
