@@ -24,7 +24,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light" href="#">
+                <a class="nav-link text-light" href="./users.html">
                   <i class="bi bi-people"></i> Gestión de Usuarios
                 </a>
               </li>
@@ -39,18 +39,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light" href="#">
-                  <i class="bi bi-star"></i> Testimonios
-                </a>
-              </li>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light" href="#">
-                  <i class="bi bi-gear"></i> Configuración
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light" href="#">
+                <a class="nav-link text-light" href="./stats.html">
                   <i class="bi bi-bar-chart"></i> Reportes y Análisis
                 </a>
               </li>
@@ -86,8 +75,14 @@
                     <td>juan.perez@example.com</td>
                     <td>2024-11-01</td>
                     <td>
-                      <button class="btn btn-sm btn-warning"><i class="bi bi-pencil-square"></i> Editar</button>
-                      <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i> Eliminar</button>
+                       <!-- Botón para editar -->
+    <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editUserModal">
+      <i class="bi bi-pencil-square"></i> Editar
+  </button>
+  <!-- Botón para eliminar -->
+  <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUserModal">
+      <i class="bi bi-trash"></i> Eliminar
+  </button>
                     </td>
                   </tr>
                   <tr>
@@ -96,8 +91,14 @@
                     <td>ana.lopez@example.com</td>
                     <td>2024-10-20</td>
                     <td>
-                      <button class="btn btn-sm btn-warning"><i class="bi bi-pencil-square"></i> Editar</button>
-                      <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i> Eliminar</button>
+                      <!-- Botón para editar -->
+    <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editUserModal">
+      <i class="bi bi-pencil-square"></i> Editar
+  </button>
+  <!-- Botón para eliminar -->
+  <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUserModal">
+      <i class="bi bi-trash"></i> Eliminar
+  </button>
                     </td>
                   </tr>
                   <!-- Más filas -->
@@ -142,6 +143,62 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal para editar usuario -->
+<div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="editUserModalLabel">Editar Usuario</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form>
+              <div class="modal-body">
+                  <div class="mb-3">
+                      <label for="edit-username" class="form-label">Nombre de Usuario</label>
+                      <input type="text" class="form-control" id="edit-username" required>
+                  </div>
+                  <div class="mb-3">
+                      <label for="edit-email" class="form-label">Correo Electrónico</label>
+                      <input type="email" class="form-control" id="edit-email" required>
+                  </div>
+                  <div class="mb-3">
+                      <label for="edit-password" class="form-label">Contraseña</label>
+                      <input type="password" class="form-control" id="edit-password">
+                  </div>
+                  <div class="mb-3">
+                      <label for="edit-confirm-password" class="form-label">Confirmar Contraseña</label>
+                      <input type="password" class="form-control" id="edit-confirm-password">
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+
+<!-- Alerta de confirmación para eliminar -->
+<div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="deleteUserModalLabel">Confirmar Eliminación</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              ¿Estás seguro de que deseas eliminar a este usuario? Esta acción no se puede deshacer.
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-danger">Eliminar</button>
+          </div>
+      </div>
+  </div>
+</div>
+
   
       </div>
     </div>
