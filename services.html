@@ -32,13 +32,18 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link text-light" href="./pets.html">
+                  <i class="bi bi-people"></i> Gestión de Mascotas
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link text-light" href="./services.html">
                   <i class="bi bi-box"></i> Servicios
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-light" href="./adoption.html">
-                  <i class="bi bi-paw"></i> Adopciones
+                  <i class="bi bi-house-heart"></i> Adopciones
                 </a>
               </li>
               <li class="nav-item">
@@ -52,11 +57,71 @@
 
         <!-- Main Content -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-          <div
-            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
-          >
-            <h1 class="h2">Gestión de Servicios</h1>
-          </div>
+          <nav class="px-4 py-4 navbar navbar-expand-lg bg-body-tertiary px-4">
+            <div class="container-fluid">
+              <h1 class="h2">Gestión de Servicios</h1>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div
+                class="collapse navbar-collapse justify-content-end"
+                id="navbarSupportedContent"
+              >
+                <ul class="navbar-nav">
+                  <li class="nav-item mx-4">
+                    <button
+                      type="button"
+                      class="btn btn-light position-relative"
+                    >
+                      <i class="bi bi-bell"></i>
+                      <span
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                      >
+                        20
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                  </li>
+                  <li class="nav-item">
+                    <img
+                      src="./img/profile.jpg"
+                      style="
+                        width: 40px;
+                        border-radius: 50%;
+                        border: 1px solid black;
+                      "
+                    />
+                  </li>
+                  <li class="nav-item dropdown mx-4">
+                    <a
+                      class="nav-link dropdown-toggle active"
+                      href="#"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Cinnamoroll
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Perfil</a></li>
+                      <li>
+                        <hr class="dropdown-divider" />
+                      </li>
+                      <li><a class="dropdown-item" href="#">Log Out</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
 
           <!-- Acordeón de Servicios (Encabezado Oscuro) -->
           <div class="accordion accordion-dark" id="servicesAccordion">
@@ -107,7 +172,7 @@
                           <button
                             class="btn btn-warning btn-sm"
                             data-bs-toggle="modal"
-                            data-bs-target="#addConsultaMedicaModal"
+                            data-bs-target="#addModal"
                             data-descripcion="Revisión general de la mascota por un veterinario especializado."
                             data-precio="50.00"
                           >
@@ -133,7 +198,7 @@
                           <button
                             class="btn btn-warning btn-sm"
                             data-bs-toggle="modal"
-                            data-bs-target="#addConsultaMedicaModal"
+                            data-bs-target="#addModal"
                             data-descripcion="Revisión general de la mascota por un veterinario especializado."
                             data-precio="50.00"
                           >
@@ -161,7 +226,7 @@
                           <button
                             class="btn btn-warning btn-sm"
                             data-bs-toggle="modal"
-                            data-bs-target="#addConsultaMedicaModal"
+                            data-bs-target="#addModal"
                             data-descripcion="Revisión general de la mascota por un veterinario especializado."
                             data-precio="50.00"
                           >
@@ -181,7 +246,7 @@
                   <button
                     class="btn btn-success"
                     data-bs-toggle="modal"
-                    data-bs-target="#addConsultaMedicaModal"
+                    data-bs-target="#addModal"
                   >
                     <i class="bi bi-plus-circle"></i> Agregar Registro
                   </button>
@@ -237,7 +302,7 @@
                           <button
                             class="btn btn-warning btn-sm"
                             data-bs-toggle="modal"
-                            data-bs-target="#addAdiestramientoModal"
+                            data-bs-target="#addModal"
                             data-descripcion="Sesiones de entrenamiento para mejorar el comportamiento de tu mascota."
                             data-precio="100.00"
                           >
@@ -266,7 +331,7 @@
                           <button
                             class="btn btn-warning btn-sm"
                             data-bs-toggle="modal"
-                            data-bs-target="#addAdiestramientoModal"
+                            data-bs-target="#addModal"
                             data-descripcion="Entrenamiento en obediencia básica (sentado, quieto, venir)."
                             data-precio="120.00"
                           >
@@ -295,7 +360,7 @@
                           <button
                             class="btn btn-warning btn-sm"
                             data-bs-toggle="modal"
-                            data-bs-target="#addAdiestramientoModal"
+                            data-bs-target="#addModal"
                             data-descripcion="Sesiones de socialización para mejorar la interacción con otros animales."
                             data-precio="130.00"
                           >
@@ -315,7 +380,7 @@
                   <button
                     class="btn btn-success"
                     data-bs-toggle="modal"
-                    data-bs-target="#addAdiestramientoModal"
+                    data-bs-target="#addModal"
                   >
                     <i class="bi bi-plus-circle"></i> Agregar Registro
                   </button>
@@ -368,7 +433,7 @@
                           <button
                             class="btn btn-warning btn-sm"
                             data-bs-toggle="modal"
-                            data-bs-target="#addConsultaEsteticaModal"
+                            data-bs-target="#addModal"
                             data-descripcion="Servicios de cuidado estético especializado para tu mascota."
                             data-precio="75.00"
                           >
@@ -394,7 +459,7 @@
                           <button
                             class="btn btn-warning btn-sm"
                             data-bs-toggle="modal"
-                            data-bs-target="#addConsultaEsteticaModal"
+                            data-bs-target="#addaModal"
                             data-descripcion="Corte de pelo y baño completo para tu mascota."
                             data-precio="80.00"
                           >
@@ -440,7 +505,7 @@
                   <button
                     class="btn btn-success"
                     data-bs-toggle="modal"
-                    data-bs-target="#addConsultaEsteticaModal"
+                    data-bs-target="#addModal"
                   >
                     <i class="bi bi-plus-circle"></i> Agregar Registro
                   </button>
@@ -449,19 +514,19 @@
             </div>
           </div>
 
-          <!-- Modal para Agregar Consulta Médica -->
+          <!-- Modal para Agregar -->
           <div
             class="modal fade"
-            id="addConsultaMedicaModal"
+            id="addModal"
             tabindex="-1"
-            aria-labelledby="addConsultaMedicaModalLabel"
+            aria-labelledby="addModalLabel"
             aria-hidden="true"
           >
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="addConsultaMedicaModalLabel">
-                    Consulta Médica
+                    Nuevo Servicio
                   </h5>
                   <button
                     type="button"
@@ -471,274 +536,61 @@
                   ></button>
                 </div>
                 <div class="modal-body">
-                  <!-- Formulario para agregar Consulta Médica -->
-                  <form>
+                  <form id="Form">
                     <div class="mb-3">
-                      <label for="consultaNombre" class="form-label"
-                        >Nombre</label
-                      >
+                      <label for="Nombre" class="form-label">Nombre</label>
                       <input
                         type="text"
                         class="form-control"
-                        id="consultaNombre"
+                        id="Nombre"
                         required
                       />
                     </div>
                     <div class="mb-3">
-                      <label for="consultaDescripcion" class="form-label"
+                      <label for="Descripcion" class="form-label"
                         >Descripción</label
                       >
                       <input
                         type="text"
                         class="form-control"
-                        id="consultaDescripcion"
+                        id="Descripcion"
                         required
                       />
                     </div>
                     <div class="mb-3">
-                      <label for="consultaPrecio" class="form-label"
-                        >Precio</label
-                      >
+                      <label for="Precio" class="form-label">Precio</label>
                       <input
                         type="number"
                         class="form-control"
-                        id="consultaPrecio"
+                        id="Precio"
                         required
                       />
                     </div>
                     <div class="mb-3">
-                      <label for="consultaFecha" class="form-label"
-                        >Fecha</label
-                      >
+                      <label for="Fecha" class="form-label">Fecha</label>
                       <input
                         type="date"
                         class="form-control"
-                        id="consultaFecha"
+                        id="Fecha"
                         required
                       />
                     </div>
                     <div class="mb-3">
-                      <label for="consultaHora" class="form-label">Hora</label>
+                      <label for="Hora" class="form-label">Hora</label>
                       <input
                         type="time"
                         class="form-control"
-                        id="consultaHora"
+                        id="Hora"
                         required
                       />
                     </div>
                     <div class="mb-3">
-                      <label for="consultaEstado" class="form-label"
-                        >Estado</label
-                      >
-                      <select class="form-select" id="consultaEstado" required>
+                      <label for="Estado" class="form-label">Estado</label>
+                      <select class="form-select" id="Estado" required>
                         <option selected disabled>Selecciona un estado</option>
-                        <option value="Disponible">Realizado</option>
+                        <option value="Realizado">Realizado</option>
                         <option value="Pendiente">Pendiente</option>
-                        <option value="Adoptado">Cancelado</option>
-                      </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">
-                      Agregar
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Modal para Agregar Adiestramiento -->
-          <div
-            class="modal fade"
-            id="addAdiestramientoModal"
-            tabindex="-1"
-            aria-labelledby="addAdiestramientoModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="addAdiestramientoModalLabel">
-                    Adiestramiento
-                  </h5>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body">
-                  <!-- Formulario para agregar Adiestramiento -->
-                  <form>
-                    <div class="mb-3">
-                      <label for="adiestramientoNombre" class="form-label"
-                        >Nombre</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="adiestramientoNombre"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="adiestramientoDescripcion" class="form-label"
-                        >Descripción</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="adiestramientoDescripcion"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="adiestramientoPrecio" class="form-label"
-                        >Precio</label
-                      >
-                      <input
-                        type="number"
-                        class="form-control"
-                        id="adiestramientoPrecio"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="adiestramientoFecha" class="form-label"
-                        >Fecha</label
-                      >
-                      <input
-                        type="date"
-                        class="form-control"
-                        id="adiestramientFecha"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="adiestramientoaHora" class="form-label"
-                        >Hora</label
-                      >
-                      <input
-                        type="time"
-                        class="form-control"
-                        id="adiestramientoaHora"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="adiestramientoEstado" class="form-label"
-                        >Estado</label
-                      >
-                      <select
-                        class="form-select"
-                        id="adiestramientoEstado"
-                        required
-                      >
-                        <option selected disabled>Selecciona un estado</option>
-                        <option value="Disponible">Realizado</option>
-                        <option value="Pendiente">Pendiente</option>
-                        <option value="Adoptado">Cancelado</option>
-                      </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">
-                      Agregar
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Modal para Agregar Consulta Estética -->
-          <div
-            class="modal fade"
-            id="addConsultaEsteticaModal"
-            tabindex="-1"
-            aria-labelledby="addConsultaEsteticaModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="addConsultaEsteticaModalLabel">
-                    Consulta Estética
-                  </h5>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body">
-                  <!-- Formulario para agregar Consulta Estética -->
-                  <form>
-                    <div class="mb-3">
-                      <label for="consultaEsteticaNombre" class="form-label"
-                        >Nombre</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="consultaEsteticaNombre"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label
-                        for="consultaEsteticaDescripcion"
-                        class="form-label"
-                        >Descripción</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="consultaEsteticaDescripcion"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="consultaEsteticaPrecio" class="form-label"
-                        >Precio</label
-                      >
-                      <input
-                        type="number"
-                        class="form-control"
-                        id="consultaEsteticaPrecio"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="consultaEsteticaFecha" class="form-label"
-                        >Fecha</label
-                      >
-                      <input
-                        type="date"
-                        class="form-control"
-                        id="consultaEsteticaFecha"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="consultaEsteticaHora" class="form-label"
-                        >Hora</label
-                      >
-                      <input
-                        type="time"
-                        class="form-control"
-                        id="consultaEsteticaHora"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="consultaEsteticaEstado" class="form-label"
-                        >Estado</label
-                      >
-                      <select class="form-select" id="consultaEstado" required>
-                        <option selected disabled>Selecciona un estado</option>
-                        <option value="Disponible">Realizado</option>
-                        <option value="Pendiente">Pendiente</option>
-                        <option value="Adoptado">Cancelado</option>
+                        <option value="Cancelado">Cancelado</option>
                       </select>
                     </div>
                     <button type="submit" class="btn btn-primary">
@@ -789,10 +641,45 @@
             </div>
           </div>
         </div>
+        <!-- Modal para alertas -->
+        <div
+          class="modal fade"
+          id="alertModal"
+          tabindex="-1"
+          aria-labelledby="alertModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="alertModalLabel">Validación</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Cerrar"
+                ></button>
+              </div>
+              <div class="modal-body" id="alertModalBody">
+                <!-- Mensaje dinámico de error o éxito -->
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  id="modalConfirmButton"
+                  class="btn btn-primary"
+                >
+                  Aceptar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+    <script src="./js/services.js"></script>
   </body>
 </html>
