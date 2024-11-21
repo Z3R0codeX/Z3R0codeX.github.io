@@ -44,22 +44,32 @@
           <a href="#"><img src="./img/Frame2.png" alt="Google" /></a>
           <a href="#"><img src="./img/Frame3.png" alt="LinkedIn" /></a>
         </div>
-        <form action="#">
+        <form action="./php/login.php" method="post">
           <div class="input-group">
             <span class="material-icons">email</span>
-            <input id="user" type="email" placeholder="Email" required />
+            <input
+              name="txtUser"
+              id="user"
+              type="email"
+              placeholder="Email"
+              required
+            />
           </div>
           <div class="input-group">
             <span class="material-icons">lock</span>
-            <input id="pass" type="password" placeholder="Password" required />
+            <input
+              name="txtPass"
+              id="pass"
+              type="password"
+              placeholder="Password"
+              required
+            />
           </div>
           <a href="#" class="forgot-password">Forgot your password?</a>
-          <button id="login-btn" class="btn">Sign In</button>
+          <button id="login-btn" class="btn" type="submit">Sign In</button>
         </form>
         <p>Don’t have an account? <a href="./login.html">Sign Up</a></p>
       </div>
     </div>
-
-    <script src="./js/val.js"></script>
   </body>
 </html>
