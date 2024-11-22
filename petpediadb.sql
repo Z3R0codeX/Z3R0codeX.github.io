@@ -15,6 +15,7 @@ CREATE TABLE users (
 );
 
 insert into users values (0,'luis','luis@mail.com','1234567A',1,'');
+insert into users values (0,'luis','luis2@mail.com','1234567A',2,'');
 
 select * from users where email='luis@mail.com'and password ='1234567A';
 

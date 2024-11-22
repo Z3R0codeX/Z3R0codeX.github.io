@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
     include "./conexion.php";
     $email = $_POST['txtUser'];
     $pass = $_POST['txtPass'];
@@ -17,8 +17,34 @@
         echo "id: ".$fila[0].'<br>';
         echo "nombre: ".$fila[1].'<br>';
         echo "email: ".$fila[2].'<br>';
+        echo "nivel: ".$fila[4].'<br>';
+
+        $arreglo =[
+            'id'=>$fila[0],
+            'nombre'=>$fila[1],
+            'email'=>$fila[2],
+            'nivel'=>$fila[4]
+        ];
+
+        $_SESSION['userdata']=$arreglo;
+
+        if($fila[4]==1){
+            header("Location: ../dashboard.php");
+        }else{
+            header("Location: ../index.html");
+        }
+
     }else{
         echo 'datos no validos';
+        header("Location: ../login.php?error=datos no validos");
     }
 
 ?>
+
+
+
+
+
+
+
+      

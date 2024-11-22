@@ -1,3 +1,11 @@
+<?php session_start();
+if(isset($_SESSION['userdata'])){
+  $user=$_SESSION['userdata'];
+}else{
+  header('Location: ./login.php');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -108,7 +116,8 @@
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      Cinnamoroll
+                      <?php echo $user['nombre'];
+                      ?>
                     </a>
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="#">Perfil</a></li>
