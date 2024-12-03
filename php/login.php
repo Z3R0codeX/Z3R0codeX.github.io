@@ -29,14 +29,14 @@
         $_SESSION['userdata']=$arreglo;
 
         if($fila[4]==1){
-            header("Location: ../dashboard.php");
+         header("Location: ../dashboard.php");
         }else{
-            header("Location: ../index.html");
+          header("Location: ../index.html");
         }
 
     }else{
         echo 'datos no validos';
-        header("Location: ../login.php?error=datos no validos");
+       header("Location: ../login.php?error=datos no validos");
     }
 
 ?>

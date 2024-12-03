@@ -5,6 +5,8 @@ if(isset($_SESSION['userdata'])){
   header('Location: ./login.php');
 }
 
+$title="Inicio";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,115 +27,15 @@ if(isset($_SESSION['userdata'])){
     <div class="container-fluid">
       <div class="row">
         <!-- Sidebar -->
-        <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
-          <div class="position-sticky">
-            <h4 class="text-center text-light py-3">Petpedia Dashboard</h4>
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link text-light" href="./dashboard.html">
-                  <i class="bi bi-house"></i> Inicio
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light" href="./users.html">
-                  <i class="bi bi-people"></i> Gestión de Usuarios
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light" href="./pets.html">
-                  <i class="bi bi-people"></i> Gestión de Mascotas
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light" href="./services.html">
-                  <i class="bi bi-box"></i> Servicios
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light" href="./adoption.html">
-                  <i class="bi bi-house-heart"></i> Adopciones
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light" href="./stats.html">
-                  <i class="bi bi-bar-chart"></i> Reportes y Análisis
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <?php include "./layouts/aside.php" ?>
 
         <!-- Main Content -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-          <nav class="px-4 py-4 navbar navbar-expand-lg bg-body-tertiary px-4">
-            <div class="container-fluid">
-              <h1 class="h2">Inicio</h1>
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div
-                class="collapse navbar-collapse justify-content-end"
-                id="navbarSupportedContent"
-              >
-                <ul class="navbar-nav">
-                  <li class="nav-item mx-4">
-                    <button
-                      type="button"
-                      class="btn btn-light position-relative"
-                    >
-                      <i class="bi bi-bell"></i>
-                      <span
-                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                      >
-                        20
-                        <span class="visually-hidden">unread messages</span>
-                      </span>
-                    </button>
-                  </li>
-                  <li class="nav-item">
-                    <img
-                      src="./img/profile.jpg"
-                      style="
-                        width: 40px;
-                        border-radius: 50%;
-                        border: 1px solid black;
-                      "
-                    />
-                  </li>
-                  <li class="nav-item dropdown mx-4">
-                    <a
-                      class="nav-link dropdown-toggle active"
-                      href="#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      <?php echo $user['nombre'];
-                      ?>
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Perfil</a></li>
-                      <li>
-                        <hr class="dropdown-divider" />
-                      </li>
-                      <li><a class="dropdown-item" href="#">Log Out</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+
+        <?php include "./layouts/header.php" ?>
 
           <!-- Example content -->
-          <div class="card mb-4">
+          <div class="card mb-4  pt-3 pb-2 mb-3 mt-3">
             <div class="card-body">
               <h5 class="card-title">Resumen</h5>
               <p class="card-text">

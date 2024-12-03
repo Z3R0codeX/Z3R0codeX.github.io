@@ -1,3 +1,19 @@
+<?php session_start();
+if(isset($_SESSION['userdata'])){
+  $user=$_SESSION['userdata'];
+}else{
+  header('Location: ./login.php');
+}
+
+$title="Gestion de Usuarios";
+
+?>
+<?php
+  include "./php/conexion.php";
+  $sql="select * from users order by user_id DESC";
+  $res=$conexion->query($sql)or die($conexion->error);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,86 +30,13 @@
     <div class="container-fluid">
       <div class="row">
         <!-- Sidebar -->
-        <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
-          <div class="position-sticky">
-            <h4 class="text-center text-light py-3">Petpedia Dashboard</h4>
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link text-light" href="./dashboard.html">
-                  <i class="bi bi-house"></i> Inicio
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light" href="./users.html">
-                  <i class="bi bi-people"></i> Gestión de Usuarios
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light" href="./pets.html">
-                  <i class="bi bi-people"></i> Gestión de Mascotas
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light" href="./services.html">
-                  <i class="bi bi-box"></i> Servicios
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light" href="./adoption.html">
-                  <i class="bi bi-house-heart"></i> Adopciones
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light" href="./stats.html">
-                  <i class="bi bi-bar-chart"></i> Reportes y Análisis
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <?php include "./layouts/aside.php" ?>
 
         <!-- Main Content -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-          <nav class="px-4 py-4 navbar navbar-expand-lg bg-body-tertiary px-4">
-            <div class="container-fluid">
-              <h1 class="h2">Gestión de Usuarios</h1>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                  <li class="nav-item mx-4">
-                    <button type="button" class="btn btn-light position-relative">
-                      <i class="bi bi-bell"></i>
-                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        20
-                        <span class="visually-hidden">unread messages</span>
-                      </span>
-                    </button>
-                  </li>
-                  <li class="nav-item">
-                    <img src="./img/profile.jpg" style="width: 40px;border-radius: 50%; border: 1px solid black;">
-                  </li>
-                  <li class="nav-item dropdown mx-4">
-                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
-                      aria-expanded="false">
-                      Cinnamoroll
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Perfil</a></li>
-                      <li>
-                        <hr class="dropdown-divider">
-                      </li>
-                      <li><a class="dropdown-item" href="#">Log Out</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <?php include "./layouts/header.php" ?>
+
+            <div class="d-flex justify-content-end flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
               <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUserModal">
                 <i class="bi bi-plus"></i> Agregar Usuario
               </button>
@@ -108,43 +51,41 @@
                     <th>Nombre de Usuario</th>
                     <th>Email</th>
                     <th>Fecha de Registro</th>
+                    <th>Nivel</th>
                     <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <?php
+                    while($fila=mysqli_fetch_array($res)){
+                  ?>
                   <tr>
-                    <td>1</td>
-                    <td>Juan Pérez</td>
-                    <td>juan.perez@example.com</td>
-                    <td>2024-11-01</td>
+                    <td><?php echo $fila['user_id']  ?></td>
+                    <td><?php echo $fila['username']  ?></td>
+                    <td><?php echo $fila['email']  ?></td>
+                    <td><?php echo $fila['created_at']  ?></td>
+                    <td><?php 
+                      if($fila['level']==1){
+                        echo '<span class="badge bg-success">Administrador</span>';
+                      }
+                      else{echo '<span class="badge bg-dark">Usuario</span>';}
+                    ?></td>
                     <td>
                        <!-- Botón para editar -->
     <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#addUserModal">
       <i class="bi bi-pencil-square"></i> Editar
   </button>
   <!-- Botón para eliminar -->
-  <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUserModal">
+  <button class="btn btn-sm btn-danger btnEliminar"
+          data-id="<?php echo $fila['user_id']; ?>"
+          data-bs-toggle="modal" data-bs-target="#deleteUserModal">
       <i class="bi bi-trash"></i> Eliminar
   </button>
                     </td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Ana López</td>
-                    <td>ana.lopez@example.com</td>
-                    <td>2024-10-20</td>
-                    <td>
-                      <!-- Botón para editar -->
-    <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#addUserModal">
-      <i class="bi bi-pencil-square"></i> Editar
-  </button>
-  <!-- Botón para eliminar -->
-  <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUserModal">
-      <i class="bi bi-trash"></i> Eliminar
-  </button>
-                    </td>
-                  </tr>
-                  <!-- Más filas -->
+                  <?php
+                    }
+                  ?>
                 </tbody>
               </table>
             </div>
@@ -197,11 +138,11 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-              ¿Estás seguro de que deseas eliminar a este usuario? Esta acción no se puede deshacer.
+              ¿Estás seguro de que deseas eliminar a este registro? Esta acción no se puede deshacer.
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-danger">Eliminar</button>
+              <button type="button" class="btn btn-danger eliminar" data-bs-dismiss="modal">Eliminar</button>
           </div>
       </div>
   </div>
@@ -227,8 +168,30 @@
       </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
-    <script src="./js/users.js"></script>
+    <script>
+      $(document).ready(function(){
+        var idEliminar = -1;
+        var fila;
+        $(".btnEliminar").click(function(){
+          idEliminar=$(this).data('id');
+          fila=$(this).parent('td').parent('tr');
+        });
+        $(".eliminar").click(function(){
+          $.ajax({
+            url:'./php/eliminar.php',
+            method:'POST',
+            data:{
+              id:idEliminar
+            }
+          }).done(function(res){
+            $(fila).fadeOut(500);
+          });
+          
+        });
+      });
+    </script>
   </body>
 </html>

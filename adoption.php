@@ -1,3 +1,31 @@
+<?php session_start();
+if(isset($_SESSION['userdata'])){
+  $user=$_SESSION['userdata'];
+}else{
+  header('Location: ./login.php');
+}
+
+?>
+<?php
+include "./php/conexion.php";
+
+// Consulta SQL para unir las tablas `adoptions` y `pets`
+$sql = "SELECT 
+            a.adoption_id, 
+            p.name AS pet_name,
+            p.birth_date AS b_date,
+            p.breed, 
+            a.status_id,
+            u.username
+        FROM adoptions a
+        INNER JOIN pets p ON a.pet_id = p.pet_id
+        INNER JOIN users u ON a.user_id = u.user_id
+        ORDER BY a.adoption_id DESC";
+
+$res = $conexion->query($sql) or die($conexion->error);
+
+$title="Adopciones";
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,111 +45,11 @@
     <div class="container-fluid">
       <div class="row">
         <!-- Sidebar -->
-        <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
-          <div class="position-sticky">
-            <h4 class="text-center text-light py-3">Petpedia Dashboard</h4>
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link text-light" href="./dashboard.html">
-                  <i class="bi bi-house"></i> Inicio
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light" href="./users.html">
-                  <i class="bi bi-people"></i> Gestión de Usuarios
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light" href="./pets.html">
-                  <i class="bi bi-people"></i> Gestión de Mascotas
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light" href="./services.html">
-                  <i class="bi bi-box"></i> Servicios
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light" href="./adoption.html">
-                  <i class="bi bi-house-heart"></i> Adopciones
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light" href="./stats.html">
-                  <i class="bi bi-bar-chart"></i> Reportes y Análisis
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <?php include "./layouts/aside.php" ?>
 
         <!-- Main Content -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-          <nav class="px-4 py-4 navbar navbar-expand-lg bg-body-tertiary px-4">
-            <div class="container-fluid">
-              <h1 class="h2">Gestión de Adopciones</h1>
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div
-                class="collapse navbar-collapse justify-content-end"
-                id="navbarSupportedContent"
-              >
-                <ul class="navbar-nav">
-                  <li class="nav-item mx-4">
-                    <button
-                      type="button"
-                      class="btn btn-light position-relative"
-                    >
-                      <i class="bi bi-bell"></i>
-                      <span
-                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                      >
-                        20
-                        <span class="visually-hidden">unread messages</span>
-                      </span>
-                    </button>
-                  </li>
-                  <li class="nav-item">
-                    <img
-                      src="./img/profile.jpg"
-                      style="
-                        width: 40px;
-                        border-radius: 50%;
-                        border: 1px solid black;
-                      "
-                    />
-                  </li>
-                  <li class="nav-item dropdown mx-4">
-                    <a
-                      class="nav-link dropdown-toggle active"
-                      href="#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Cinnamoroll
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Perfil</a></li>
-                      <li>
-                        <hr class="dropdown-divider" />
-                      </li>
-                      <li><a class="dropdown-item" href="#">Log Out</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+        <?php include "./layouts/header.php" ?>
           <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
           >
@@ -142,20 +70,29 @@
                   <th>ID</th>
                   <th>Nombre de la Mascota</th>
                   <th>Especie</th>
-                  <th>Edad</th>
+                  <th>Fecha de nacimiento</th>
                   <th>Estado</th>
                   <th>Adoptante</th>
                   <th>Acciones</th>
                 </tr>
               </thead>
               <tbody>
+              <?php
+                    while($fila=mysqli_fetch_array($res)){
+                  ?>
                 <tr>
-                  <td>1</td>
-                  <td>Lucky</td>
-                  <td>Perro</td>
-                  <td>2 años</td>
-                  <td><span class="badge bg-success">Disponible</span></td>
-                  <td>-</td>
+                <td><?php echo $fila['adoption_id'] ?></td>
+                <td><?php echo $fila['pet_name'] ?></td>
+                <td><?php echo $fila['breed'] ?></td>
+                <td><?php echo $fila['b_date'] ?></td>
+                <td><?php 
+                      if($fila['status_id']==2){
+                        echo '<span class="badge bg-warning">Pendiente</span>';
+                      }
+                      if($fila['status_id']==3){echo '<span class="badge bg-success">Completado</span>';
+                      }
+                    ?></td>
+                    <td><?php echo $fila['username']; ?></td>
                   <td>
                     <button
                       class="btn btn-warning btn-sm"
@@ -171,65 +108,11 @@
                     >
                       <i class="bi bi-trash"></i>
                     </button>
-                    <button class="btn btn-info btn-sm">
-                      <i class="bi bi-eye"></i>
-                    </button>
                   </td>
                 </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Mia</td>
-                  <td>Gato</td>
-                  <td>1 año</td>
-                  <td><span class="badge bg-warning">Pendiente</span></td>
-                  <td>Juan Pérez</td>
-                  <td>
-                    <button
-                      class="btn btn-warning btn-sm"
-                      data-bs-toggle="modal"
-                      data-bs-target="#addAdoptionModal"
-                    >
-                      <i class="bi bi-pencil"></i>
-                    </button>
-                    <button
-                      class="btn btn-sm btn-danger"
-                      data-bs-toggle="modal"
-                      data-bs-target="#deleteUserModal"
-                    >
-                      <i class="bi bi-trash"></i>
-                    </button>
-                    <button class="btn btn-info btn-sm">
-                      <i class="bi bi-eye"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Max</td>
-                  <td>Perro</td>
-                  <td>5 años</td>
-                  <td><span class="badge bg-danger">Adoptado</span></td>
-                  <td>María López</td>
-                  <td>
-                    <button
-                      class="btn btn-warning btn-sm"
-                      data-bs-toggle="modal"
-                      data-bs-target="#addAdoptionModal"
-                    >
-                      <i class="bi bi-pencil"></i>
-                    </button>
-                    <button
-                      class="btn btn-sm btn-danger"
-                      data-bs-toggle="modal"
-                      data-bs-target="#deleteUserModal"
-                    >
-                      <i class="bi bi-trash"></i>
-                    </button>
-                    <button class="btn btn-info btn-sm">
-                      <i class="bi bi-eye"></i>
-                    </button>
-                  </td>
-                </tr>
+                <?php
+                    }
+                ?>
               </tbody>
             </table>
           </div>
