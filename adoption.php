@@ -14,7 +14,7 @@ $sql = "SELECT
             a.adoption_id, 
             p.name AS pet_name,
             p.birth_date AS b_date,
-            p.breed, 
+            p.species, 
             a.status_id,
             u.username
         FROM adoptions a
@@ -51,7 +51,7 @@ $title="Adopciones";
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <?php include "./layouts/header.php" ?>
           <div
-            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+            class="d-flex justify-content-end flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
           >
             <button
               class="btn btn-primary"
@@ -83,7 +83,7 @@ $title="Adopciones";
                 <tr>
                 <td><?php echo $fila['adoption_id'] ?></td>
                 <td><?php echo $fila['pet_name'] ?></td>
-                <td><?php echo $fila['breed'] ?></td>
+                <td><?php echo $fila['species'] ?></td>
                 <td><?php echo $fila['b_date'] ?></td>
                 <td><?php 
                       if($fila['status_id']==2){
@@ -101,13 +101,12 @@ $title="Adopciones";
                     >
                       <i class="bi bi-pencil"></i>
                     </button>
-                    <button
-                      class="btn btn-sm btn-danger"
-                      data-bs-toggle="modal"
-                      data-bs-target="#deleteUserModal"
-                    >
-                      <i class="bi bi-trash"></i>
-                    </button>
+                    <!-- Botón para eliminar -->
+  <button class="btn btn-sm btn-danger btnEliminar"
+          data-id="<?php echo $fila['adoption_id']; ?>"
+          data-bs-toggle="modal" data-bs-target="#deleteUserModal">
+      <i class="bi bi-trash"></i> 
+  </button>
                   </td>
                 </tr>
                 <?php
@@ -191,84 +190,52 @@ $title="Adopciones";
           </div>
         </main>
 
-        <!-- Alerta de confirmación para eliminar -->
-        <div
-          class="modal fade"
-          id="deleteUserModal"
-          tabindex="-1"
-          aria-labelledby="deleteUserModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="deleteUserModalLabel">
-                  Confirmar Eliminación
-                </h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                ¿Estás seguro de que deseas eliminar a este usuario? Esta acción
-                no se puede deshacer.
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Cancelar
-                </button>
-                <button type="button" class="btn btn-danger">Eliminar</button>
-              </div>
-            </div>
+       <!-- Alerta de confirmación para eliminar -->
+<div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="deleteUserModalLabel">Confirmar Eliminación</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-        </div>
-
-        <!-- Modal para alertas -->
-        <div
-          class="modal fade"
-          id="alertModal"
-          tabindex="-1"
-          aria-labelledby="alertModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="alertModalLabel">Validación</h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Cerrar"
-                ></button>
-              </div>
-              <div class="modal-body" id="alertModalBody">
-                <!-- Mensaje dinámico de error o éxito -->
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  id="modalConfirmButton"
-                  class="btn btn-primary"
-                >
-                  Aceptar
-                </button>
-              </div>
-            </div>
+          <div class="modal-body">
+              ¿Estás seguro de que deseas eliminar a este registro? Esta acción no se puede deshacer.
           </div>
-        </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-danger eliminar" data-bs-dismiss="modal">Eliminar</button>
+          </div>
+      </div>
+  </div>
+</div>
+        
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
-    <script src="./js/adoption.js"></script>
+    <script>
+      $(document).ready(function(){
+        var idEliminar = -1;
+        var fila;
+        $(".btnEliminar").click(function(){
+          idEliminar=$(this).data('id');
+          fila=$(this).parent('td').parent('tr');
+        });
+        $(".eliminar").click(function(){
+          $.ajax({
+            url:'./php/eliminar.php',
+            method:'POST',
+            data:{
+              id:idEliminar,
+              tabla:'adoptions',
+              columna:'adoption_id'     }
+          }).done(function(res){
+            $(fila).fadeOut(500);
+          });
+          
+        });
+      });
+    </script>
   </body>
 </html>

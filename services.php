@@ -116,13 +116,14 @@ if(isset($_SESSION['userdata'])){
                   >
                     <i class="bi bi-pencil"></i>
                   </button>
-                  <button
-                    class="btn btn-sm btn-danger"
-                    data-bs-toggle="modal"
-                    data-bs-target="#deleteUserModal"
-                  >
-                    <i class="bi bi-trash"></i>
-                  </button>
+                 <!-- Botón para eliminar -->
+  <button class="btn btn-sm btn-danger btnEliminar"
+  d         ata-id="<?php echo $fila['appointment_id']; ?>"
+            data-table="appointments"
+            data-column="appointment_id "
+          data-bs-toggle="modal" data-bs-target="#deleteUserModal">
+      <i class="bi bi-trash"></i>
+  </button>
                 </td>
               </tr>
             <?php
@@ -206,13 +207,14 @@ if(isset($_SESSION['userdata'])){
                   >
                     <i class="bi bi-pencil"></i>
                   </button>
-                  <button
-                    class="btn btn-sm btn-danger"
-                    data-bs-toggle="modal"
-                    data-bs-target="#deleteUserModal"
-                  >
-                    <i class="bi bi-trash"></i>
-                  </button>
+                  <!-- Botón para eliminar -->
+  <button class="btn btn-sm btn-danger btnEliminar"
+            data-id="<?php echo $fila['appointment_id']; ?>"
+            data-table="appointments"
+            data-column="appointment_id "
+          data-bs-toggle="modal" data-bs-target="#deleteUserModal">
+      <i class="bi bi-trash"></i>
+  </button>
                 </td>
               </tr>
             <?php
@@ -297,13 +299,14 @@ if(isset($_SESSION['userdata'])){
                   >
                     <i class="bi bi-pencil"></i>
                   </button>
-                  <button
-                    class="btn btn-sm btn-danger"
-                    data-bs-toggle="modal"
-                    data-bs-target="#deleteUserModal"
-                  >
-                    <i class="bi bi-trash"></i>
-                  </button>
+                  <!-- Botón para eliminar -->
+  <button class="btn btn-sm btn-danger btnEliminar"
+          data-id="<?php echo $fila['appointment_id']; ?>"
+            data-table="appointments"
+            data-column="appointment_id "
+          data-bs-toggle="modal" data-bs-target="#deleteUserModal">
+      <i class="bi bi-trash"></i> 
+  </button>
                 </td>
               </tr>
             <?php
@@ -413,78 +416,24 @@ if(isset($_SESSION['userdata'])){
           </div>
         </main>
 
-        <!-- Alerta de confirmación para eliminar -->
-        <div
-          class="modal fade"
-          id="deleteUserModal"
-          tabindex="-1"
-          aria-labelledby="deleteUserModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="deleteUserModalLabel">
-                  Confirmar Eliminación
-                </h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                ¿Estás seguro de que deseas eliminar? Esta acción no se puede
-                deshacer.
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Cancelar
-                </button>
-                <button type="button" class="btn btn-danger">Eliminar</button>
-              </div>
-            </div>
+       <!-- Alerta de confirmación para eliminar -->
+<div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="deleteUserModalLabel">Confirmar Eliminación</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-        </div>
-        <!-- Modal para alertas -->
-        <div
-          class="modal fade"
-          id="alertModal"
-          tabindex="-1"
-          aria-labelledby="alertModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="alertModalLabel">Validación</h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Cerrar"
-                ></button>
-              </div>
-              <div class="modal-body" id="alertModalBody">
-                <!-- Mensaje dinámico de error o éxito -->
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  id="modalConfirmButton"
-                  class="btn btn-primary"
-                >
-                  Aceptar
-                </button>
-              </div>
-            </div>
+          <div class="modal-body">
+              ¿Estás seguro de que deseas eliminar a este registro? Esta acción no se puede deshacer.
           </div>
-        </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-danger eliminar" data-bs-dismiss="modal">Eliminar</button>
+          </div>
+      </div>
+  </div>
+</div>
       </div>
     </div>
 

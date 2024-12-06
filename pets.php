@@ -68,7 +68,7 @@ if(isset($_SESSION['userdata'])){
                     aria-label="Close"
                   ></button>
                 </div>
-                <form action="./php/add_pet.php" enctype="multipart/form-data" method="post" id="addPetForm2" novalidate>
+                <form action="./php/add.php" enctype="multipart/form-data" method="post" id="addPetForm2" novalidate>
                   <div class="modal-body">
                     <div class="mb-3">
                       <label for="petName" class="form-label"
@@ -81,6 +81,7 @@ if(isset($_SESSION['userdata'])){
                         required
                       />
                     </div>
+                    <input type="hidden"  name="index" class="form-control" id="index" value="2">
                     <div class="mb-3">
                       <label for="petSpecies" class="form-label">Especie</label>
                       <select name="txtespc" class="form-select" id="petSpecies" required>
@@ -120,7 +121,7 @@ if(isset($_SESSION['userdata'])){
                         >Imágenes de la Mascota</label
                       >
                       <input
-                        name="txtimg"
+                        name="txtimg[]"
                         type="file"
                         class="form-control"
                         id="petImages"
@@ -154,38 +155,38 @@ if(isset($_SESSION['userdata'])){
                     while($fila=mysqli_fetch_array($res)){
                   ?>
             <div class="col">
-              <div class="card h-100 shadow-sm">
-                <img
-                  src="https://via.placeholder.com/300x200"
-                  class="card-img-top"
-                  alt="img"
-                />
-                <div class="card-body">
-                  <h5 class="card-title"><?php echo $fila['name']  ?></h5>
-                  <p class="card-text">
-                    <strong>Especie:</strong> <?php echo $fila['species']  ?><br />
-                    <strong>Raza:</strong> <?php echo $fila['breed']  ?><br />
-                    <strong>Fecha de Nacimiento:</strong> <?php echo $fila['birth_date']  ?><br />
-                  </p>
-                  <div class="d-flex justify-content-between">
-                    <button
-                      class="btn btn-warning btn-sm"
-                      data-bs-toggle="modal"
-                      data-bs-target="#addPetModal"
-                    >
-                      <i class="bi bi-pencil-square"></i> Editar
-                    </button>
-                    <button
-                      class="btn btn-sm btn-danger"
-                      data-bs-toggle="modal"
-                      data-bs-target="#deleteUserModal"
-                    >
-                      <i class="bi bi-trash"></i> Eliminar
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div> 
+  <div class="card h-100 shadow-sm">
+    <img
+      src="<?php echo './img/pets/' . $fila['main_image_url']; ?>"
+      alt="<?php echo $fila['name']; ?>"
+    />
+    <div class="card-body">
+      <h5 class="card-title"><?php echo htmlspecialchars($fila['name']); ?></h5>
+      <p class="card-text">
+        <strong>Especie:</strong> <?php echo htmlspecialchars($fila['species']); ?><br />
+        <strong>Raza:</strong> <?php echo htmlspecialchars($fila['breed']); ?><br />
+        <strong>Fecha de Nacimiento:</strong> <?php echo htmlspecialchars($fila['birth_date']); ?><br />
+      </p>
+      <div class="d-flex justify-content-between">
+        <!-- Botón para editar -->
+        <button
+          class="btn btn-warning btn-sm"
+          data-bs-toggle="modal"
+          data-bs-target="#addPetModal"
+        >
+          <i class="bi bi-pencil-square"></i> Editar
+        </button>
+        <!-- Botón para eliminar -->
+        <button class="btn btn-sm btn-danger btnEliminar"
+          data-id="<?php echo $fila['pet_id']; ?>"
+          data-bs-toggle="modal" data-bs-target="#deleteUserModal">
+          <i class="bi bi-trash"></i> Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
             <?php
                     }
             ?>   
@@ -228,50 +229,55 @@ if(isset($_SESSION['userdata'])){
           </div>
         </div>
 
-        <!-- Alerta de confirmación para eliminar -->
-        <div
-          class="modal fade"
-          id="deleteUserModal"
-          tabindex="-1"
-          aria-labelledby="deleteUserModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="deleteUserModalLabel">
-                  Confirmar Eliminación
-                </h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                ¿Estás seguro de que deseas eliminar a este usuario? Esta acción
-                no se puede deshacer.
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Cancelar
-                </button>
-                <button type="button" class="btn btn-danger">Eliminar</button>
-              </div>
-            </div>
+       <!-- Alerta de confirmación para eliminar -->
+<div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="deleteUserModalLabel">Confirmar Eliminación</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
+          <div class="modal-body">
+              ¿Estás seguro de que deseas eliminar a este registro? Esta acción no se puede deshacer.
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-danger eliminar" data-bs-dismiss="modal">Eliminar</button>
+          </div>
+      </div>
+  </div>
+</div>
         </div>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
-    <script src="./js/pets.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        var idEliminar = -1;
+        var fila;
+        $(".btnEliminar").click(function(){
+          idEliminar=$(this).data('id');
+          fila=$(this).parent('div').parent('div').parent('div');
+        });
+        $(".eliminar").click(function(){
+          $.ajax({
+            url:'./php/eliminar.php',
+            method:'POST',
+            data:{
+              id:idEliminar,
+              tabla:'pets',
+              columna:'pet_id'
+            }
+          }).done(function(res){
+            $(fila).fadeOut(500);
+          });
+          
+        });
+      });
+    </script>
   </body>
 </html>
 
