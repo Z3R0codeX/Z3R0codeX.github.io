@@ -12,17 +12,13 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     level TINYINT NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    user_img VARCHAR(100),
-    PRIMARY KEY (user_id)
+    user_img VARCHAR(100),    PRIMARY KEY (user_id)
 );
 
 INSERT INTO users (username, email, password, level, user_img) 
 VALUES 
 
-	('luis3', 'luis3@mail.com', '1234567A', 2, '');
-
-    ('luis', 'luis@mail.com', '1234567A', 1, ''),
-    ('luis2', 'luis2@mail.com', '1234567A', 2, '');
+    ('luis', 'luis@mail.com', '1234567A', 1, '');
    
 INSERT INTO users ( username, email, password, level) VALUES
 	('Ana López', 'ana.lopez@example.com', 'hashed_password_1',1),
@@ -50,13 +46,13 @@ CREATE TABLE pets (
     species VARCHAR(50),
     breed VARCHAR(50),
     birth_date DATE,
-    main_image_id INT,
+    main_image_url VARCHAR(255),
     status_id INT,
     PRIMARY KEY (pet_id),
     FOREIGN KEY (status_id) REFERENCES statuses(status_id)
 );
 
-INSERT INTO pets (name, img, species, breed, birth_date, main_image_id, status_id) 
+INSERT INTO pets (name, img, species, breed, birth_date, main_image_url, status_id) 
 VALUES
     ('Max', 'max.jpg', 'Dog', 'Labrador', '2020-04-15', NULL, 1),
     ('Bella', 'bella.jpg', 'Cat', 'Siamese', '2019-07-30', NULL, 1),
@@ -92,11 +88,11 @@ CREATE TABLE professionals (
 );
 
 INSERT INTO professionals (professional_id, user_id, professional_name, specialty, contact_info) VALUES
-(2,3, 'Dra. Ana López', 'Veterinaria', 'ana.lopez@example.com'),
-(3,4, 'Dr. Carlos Méndez', 'Veterinario', 'carlos.mendez@example.com'),
-(4,5, 'Juan Pérez', 'Estilista Canino', 'juan.perez@example.com'),
-(5,6, 'María González', 'Estilista Canina', 'maria.gonzalez@example.com'),
-(6,7, 'Luis Herrera', 'Entrenador Canino', 'luis.herrera@example.com');
+(2,1, 'Dra. Ana López', 'Veterinaria', 'ana.lopez@example.com'),
+(3,2, 'Dr. Carlos Méndez', 'Veterinario', 'carlos.mendez@example.com'),
+(4,3, 'Juan Pérez', 'Estilista Canino', 'juan.perez@example.com'),
+(5,4, 'María González', 'Estilista Canina', 'maria.gonzalez@example.com'),
+(6,5, 'Luis Herrera', 'Entrenador Canino', 'luis.herrera@example.com');
 
 
 -- Tabla services
@@ -168,26 +164,24 @@ CREATE TABLE appointments (
 INSERT INTO appointments (pet_id, user_id, service_id, professional_id, appointment_date, price, notes, status_id) VALUES
 -- Consultas Médicas
 (1, 1, 1, 2, '2024-12-01 10:00:00', 50.00, 'Chequeo general', 2),
-(2, 2, 1, 3, '2024-12-02 14:00:00', 60.00, 'Vacunación anual', 3),
+(2, 1, 1, 3, '2024-12-02 14:00:00', 60.00, 'Vacunación anual', 3),
 (3, 1, 1, 2, '2024-12-03 09:30:00', 45.00, 'Revisión por cojera', 4),
 
 -- Consultas Estéticas
-(4, 2, 2, 4, '2024-12-08 10:00:00', 30.00, 'Corte de pelo y baño', 3),
+(4, 3, 2, 4, '2024-12-08 10:00:00', 30.00, 'Corte de pelo y baño', 3),
 (1, 3, 2, 4, '2024-12-09 13:00:00', 25.00, 'Baño y corte de uñas', 2),
-(2, 1, 2, 5, '2024-12-10 17:00:00', 40.00, 'Baño medicado', 2),
+(2, 3, 2, 5, '2024-12-10 17:00:00', 40.00, 'Baño medicado', 2),
 
 -- Sesiones de Adiestramiento
-(3, 3, 3, 6, '2024-12-05 15:00:00', 100.00, 'Obediencia básica', 2),
-(4, 1, 3, 6, '2024-12-06 11:00:00', 150.00, 'Control de ladridos', 3),
-(1, 2, 3, 6, '2024-12-07 16:30:00', 200.00, 'Entrenamiento avanzado', 2);
+(3, 4, 3, 6, '2024-12-05 15:00:00', 100.00, 'Obediencia básica', 2),
+(4, 5, 3, 6, '2024-12-06 11:00:00', 150.00, 'Control de ladridos', 3),
+(1, 6, 3, 6, '2024-12-07 16:30:00', 200.00, 'Entrenamiento avanzado', 2);
 
 INSERT INTO appointments (pet_id, user_id, service_id, professional_id, appointment_date, price, notes, status_id)
 VALUES (1,1,3,6, '2024-12-05 10:00:00', 100.00, 'Sesión inicial de adiestramiento básico.', 2);
 
+select * from professionals;
 
-select * from appointments;
-
-TRUNCATE TABLE appointments;
 
 
 

@@ -67,7 +67,7 @@ if(isset($_GET['error'])){
           <a href="#" class="forgot-password">Forgot your password?</a>
           <button id="login-btn" class="btn" type="submit">Sign In</button>
         </form>
-        <p>Don’t have an account? <a href="./sign.html">Sign Up</a></p>
+        <p>Don’t have an account? <a href="./sign.php">Sign Up</a></p>
       </div>
     </div>
 
@@ -87,3 +87,24 @@ if(isset($_GET['error'])){
 
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
