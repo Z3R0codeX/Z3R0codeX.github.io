@@ -278,8 +278,8 @@ $title="Gestion de Usuarios";
             method:'POST',
             data:{
               id:idEliminar,
-              tabla:'pets',
-              columna:'pet_id'
+              tabla:'users',
+              columna:'user_id'
             }
           }).done(function(res){
             $(fila).fadeOut(500);

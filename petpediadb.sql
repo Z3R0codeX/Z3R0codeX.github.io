@@ -136,9 +136,9 @@ CREATE TABLE adoptions (
 );
 
 INSERT INTO adoptions (pet_id, user_id, adoption_date, status_id) VALUES
-(1, 3, '2024-12-01 14:30:00',2),
-(2, 5, '2024-12-02 10:00:00',2),
-(3, 4, '2024-12-03 16:00:00',3);
+(3, 3, '2024-12-01 14:30:00',2),
+(4, 5, '2024-12-02 10:00:00',2),
+(5, 4, '2024-12-03 16:00:00',3);
 
 
 -- Tabla appointments
@@ -163,19 +163,19 @@ CREATE TABLE appointments (
 
 INSERT INTO appointments (pet_id, user_id, service_id, professional_id, appointment_date, price, notes, status_id) VALUES
 -- Consultas Médicas
-(1, 1, 1, 2, '2024-12-01 10:00:00', 50.00, 'Chequeo general', 2),
-(2, 1, 1, 3, '2024-12-02 14:00:00', 60.00, 'Vacunación anual', 3),
-(3, 1, 1, 2, '2024-12-03 09:30:00', 45.00, 'Revisión por cojera', 4),
+(3, 1, 1, 2, '2024-12-01 10:00:00', 50.00, 'Chequeo general', 2),
+(4, 1, 1, 3, '2024-12-02 14:00:00', 60.00, 'Vacunación anual', 3),
+(5, 1, 1, 2, '2024-12-03 09:30:00', 45.00, 'Revisión por cojera', 4),
 
 -- Consultas Estéticas
-(4, 3, 2, 4, '2024-12-08 10:00:00', 30.00, 'Corte de pelo y baño', 3),
-(1, 3, 2, 4, '2024-12-09 13:00:00', 25.00, 'Baño y corte de uñas', 2),
-(2, 3, 2, 5, '2024-12-10 17:00:00', 40.00, 'Baño medicado', 2),
+(6, 3, 2, 4, '2024-12-08 10:00:00', 30.00, 'Corte de pelo y baño', 3),
+(7, 3, 2, 4, '2024-12-09 13:00:00', 25.00, 'Baño y corte de uñas', 2),
+(3, 3, 2, 5, '2024-12-10 17:00:00', 40.00, 'Baño medicado', 2),
 
 -- Sesiones de Adiestramiento
-(3, 4, 3, 6, '2024-12-05 15:00:00', 100.00, 'Obediencia básica', 2),
-(4, 5, 3, 6, '2024-12-06 11:00:00', 150.00, 'Control de ladridos', 3),
-(1, 6, 3, 6, '2024-12-07 16:30:00', 200.00, 'Entrenamiento avanzado', 2);
+(4, 4, 3, 6, '2024-12-05 15:00:00', 100.00, 'Obediencia básica', 2),
+(5, 5, 3, 6, '2024-12-06 11:00:00', 150.00, 'Control de ladridos', 3),
+(6, 6, 3, 6, '2024-12-07 16:30:00', 200.00, 'Entrenamiento avanzado', 2);
 
 INSERT INTO appointments (pet_id, user_id, service_id, professional_id, appointment_date, price, notes, status_id)
 VALUES (1,1,3,6, '2024-12-05 10:00:00', 100.00, 'Sesión inicial de adiestramiento básico.', 2);
