@@ -213,19 +213,18 @@ $title="Gestion de Usuarios";
         </div>
         <form action="./php/add.php" method="post" enctype="multipart/form-data" id="EdituserForm">
           <div class="modal-body">
-          <input type="hidden" name="userid" class="form-control" id="userid">
-            <div class="mb-3">
-            <div class="modal-body">
-          <input type="hidden" name="level" class="form-control" id="Editlevel">
-            <div class="mb-3">
-              <label for="username" class="form-label">Nombre de Usuario</label>
-              <input type="text" name="name" class="form-control" id="Editusername" required>
-            </div>
-             <input type="hidden"  name="index" class="form-control" id="Editindex" value="10">
-            <div class="mb-3">
-              <label for="email" class="form-label">Correo Electrónico</label>
-              <input type="email" name="mail" class="form-control" id="Editemail" required>
-            </div>
+            <input type="hidden" name="userid" class="form-control" id="userid">
+            
+              <input type="hidden" name="level" class="form-control" id="Editlevel">
+              <div class="mb-3">
+                <label for="username" class="form-label">Nombre de Usuario</label>
+                <input type="text" name="name" class="form-control" id="Editusername" required>
+              </div>
+              <input type="hidden"  name="index" class="form-control" id="Editindex" value="10">
+              <div class="mb-3">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <input type="email" name="mail" class="form-control" id="Editemail" required>
+              </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -258,7 +257,7 @@ $title="Gestion de Usuarios";
 
       </div>
     </div>
-
+                  </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>

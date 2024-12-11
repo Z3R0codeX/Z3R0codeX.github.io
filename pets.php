@@ -400,6 +400,7 @@ if(isset($_SESSION['userdata'])){
               columna:'pet_id'
             }
           }).done(function(res){
+          console.log(res,"gfdgfd");
             $(fila).fadeOut(500);
           });
           
