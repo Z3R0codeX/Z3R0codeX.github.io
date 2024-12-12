@@ -91,6 +91,8 @@ $title="Adopciones";
                       }
                       if($fila['status_id']==3){echo '<span class="badge bg-success">Completado</span>';
                       }
+                      if($fila['status_id']==4){echo '<span class="badge bg-danger">Cancelado</span>';
+                      }
                     ?></td>
                     <td><?php echo $fila['username']; ?></td>
                   <td>

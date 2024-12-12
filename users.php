@@ -278,7 +278,8 @@ $title="Gestion de Usuarios";
             data:{
               id:idEliminar,
               tabla:'users',
-              columna:'user_id'
+              columna:'user_id',
+              folder:'users'
             }
           }).done(function(res){
             $(fila).fadeOut(500);

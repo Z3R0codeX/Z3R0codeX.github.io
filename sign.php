@@ -24,21 +24,21 @@
           <a href="#"><img src="./img/Frame2.png" alt="Google" /></a>
           <a href="#"><img src="./img/Frame3.png" alt="LinkedIn" /></a>
         </div>
-        <form>
-          <div class="input-group">
-            <span class="material-icons">person</span>
-            <input type="text" id="username" placeholder="Username" />
-          </div>
-          <div class="input-group">
-            <span class="material-icons">email</span>
-            <input type="email" id="email" placeholder="Email" />
-          </div>
-          <div class="input-group">
-            <span class="material-icons">lock</span>
-            <input type="password" id="password" placeholder="Password" />
-          </div>
-          <a href="./index.html" type="submit" class="signup-btn">Sign Up</a>
-        </form>
+        <form action="sign.php" method="POST">
+    <div class="input-group">
+      <span class="material-icons">person</span>
+      <input type="text" id="username" name="username" placeholder="Username" required />
+    </div>
+    <div class="input-group">
+      <span class="material-icons">email</span>
+      <input type="email" id="email" name="email" placeholder="Email" required />
+    </div>
+    <div class="input-group">
+      <span class="material-icons">lock</span>
+      <input type="password" id="password" name="password" placeholder="Password" required />
+    </div>
+    <button type="submit" class="signup-btn">Sign Up</button>
+  </form>
         <p>Already have an account? <a href="./login.php">Sign In</a></p>
       </div>
       <div class="side-image">
@@ -49,5 +49,21 @@
         <img class="dog" src="./img/Dog paw-pana.svg" alt="Dog Illustration" />
       </div>
     </div>
+
+    <?php
+  // Mostrar alerta si hay error
+  if (isset($error)) {
+      echo "
+      <script>
+        Swal.fire({
+          icon: 'error',
+          title: 'ERROR',
+          text: '$error'
+        });
+      </script>
+      ";
+  }
+  ?>
+
   </body>
 </html>

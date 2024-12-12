@@ -64,7 +64,7 @@ if(isset($_GET['error'])){
               required
             />
           </div>
-          <a href="#" class="forgot-password">Forgot your password?</a>
+          <a href="index.html" class="forgot-password">Forgot your password?</a>
           <button id="login-btn" class="btn" type="submit">Sign In</button>
         </form>
         <p>Don’t have an account? <a href="./sign.php">Sign Up</a></p>

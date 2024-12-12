@@ -182,6 +182,39 @@ VALUES (1,1,3,6, '2024-12-05 10:00:00', 100.00, 'Sesión inicial de adiestramien
 
 select * from professionals;
 
+DELIMITER // 
+CREATE PROCEDURE update_adoption_status( IN adoptionId INT, IN newStatusId INT ) 
+BEGIN UPDATE adoptions SET status_id = newStatusId 
+WHERE adoption_id = adoptionId; END // 
+DELIMITER
+
+
+CALL update_adoption_status(8, 2);
+
+select* from pets;
+
+
+DELIMITER // 
+CREATE TRIGGER after_adoption_update 
+AFTER UPDATE ON adoptions FOR EACH ROW BEGIN IF NEW.status_id <> OLD.status_id 
+THEN UPDATE pets SET status_id = NEW.status_id 
+WHERE pet_id = NEW.pet_id; 
+END IF; 
+END // 
+DELIMITER
+
+-- Paso 1: Verificar el estado inicial 
+SELECT pet_id, status_id FROM pets WHERE pet_id = 4; 
+
+SELECT adoption_id, pet_id, status_id 
+FROM adoptions WHERE adoption_id = 8; 
+-- Paso 2: Actualizar el estado de la adopción 
+UPDATE adoptions SET status_id = 3
+WHERE adoption_id = 8; 
+-- Paso 3: Verificar que el estado de la mascota también se haya actualizado 
+SELECT pet_id, status_id FROM pets WHERE pet_id = 4;
+
+
 
 
 
